@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Envelope</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .envelope {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #e74c3c;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .envelope .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #c0392b;
+            border-bottom-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+            transform-origin: top;
+            transition: transform 0.5s ease;
+        }
+
+        .envelope.open .flap {
+            transform: rotateX(-180deg);
+        }
+
+        .envelope-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0;
+            transition: opacity 0.5s ease 0.5s;
+        }
+
+        .envelope.open .envelope-content {
+            opacity: 1;
+        }
+
+        .open-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .open-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="envelope-content">
+            <p>Dubakoorrr i miss youu,Come back soonnn 💖</p>
+
+
+    
+        </div>
+    </div>
+    <button class="open-button" onclick="openEnvelope()">Open the Envelope</button>
+
+    <script>
+        function openEnvelope() {
+            var envelope = document.getElementById("envelope");
+            envelope.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
